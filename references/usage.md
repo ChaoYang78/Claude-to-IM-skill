@@ -1,5 +1,7 @@
 # Usage Guide
 
+This skill works with both **Claude Code** (via `/claude-to-im` slash commands) and **Codex** (via natural language like "start bridge", "配置", "诊断"). All commands below use Claude Code syntax; Codex users can use equivalent natural language.
+
 ## setup
 
 Interactive wizard that configures the bridge.

@@ -61,9 +61,26 @@ mkdir -p ~/.claude/skills
 ln -s ~/code/Claude-to-IM-skill ~/.claude/skills/claude-to-im
 ```
 
+### Codex
+
+如果你使用 [Codex](https://github.com/openai/codex)，可以用提供的脚本安装：
+
+```bash
+# 克隆并安装（复制模式）
+git clone https://github.com/op7418/Claude-to-IM-skill.git ~/code/Claude-to-IM-skill
+bash ~/code/Claude-to-IM-skill/scripts/install-codex.sh
+
+# 或使用符号链接模式（方便开发）
+bash ~/code/Claude-to-IM-skill/scripts/install-codex.sh --link
+```
+
+这会将 Skill 安装到 `~/.codex/skills/claude-to-im`。
+
 ### 验证安装
 
-启动新的 Claude Code 会话，输入 `/` 应能看到 `claude-to-im`。也可以问 Claude："What skills are available?"
+**Claude Code：** 启动新会话，输入 `/` 应能看到 `claude-to-im`。也可以问 Claude："What skills are available?"
+
+**Codex：** 启动新会话，说 "claude-to-im setup" 或 "启动桥接"，Codex 会识别 Skill 并运行配置向导。
 
 ## 快速开始
 
@@ -96,18 +113,18 @@ ln -s ~/code/Claude-to-IM-skill ~/.claude/skills/claude-to-im
 
 ## 命令列表
 
-所有命令在 Claude Code CLI 中执行：
+所有命令在 Claude Code 或 Codex 中执行：
 
-| 命令 | 说明 |
-|---|---|
-| `/claude-to-im setup` | 交互式配置向导 |
-| `/claude-to-im start` | 启动桥接守护进程 |
-| `/claude-to-im stop` | 停止守护进程 |
-| `/claude-to-im status` | 查看运行状态（PID、运行时间、渠道） |
-| `/claude-to-im logs` | 查看最近 50 行日志（密钥自动脱敏） |
-| `/claude-to-im logs 200` | 查看最近 200 行日志 |
-| `/claude-to-im reconfigure` | 交互式修改配置 |
-| `/claude-to-im doctor` | 诊断问题（Node 版本、权限、token 有效性） |
+| Claude Code | Codex（自然语言） | 说明 |
+|---|---|---|
+| `/claude-to-im setup` | "claude-to-im setup" / "配置" | 交互式配置向导 |
+| `/claude-to-im start` | "start bridge" / "启动桥接" | 启动桥接守护进程 |
+| `/claude-to-im stop` | "stop bridge" / "停止桥接" | 停止守护进程 |
+| `/claude-to-im status` | "bridge status" / "状态" | 查看运行状态 |
+| `/claude-to-im logs` | "查看日志" | 查看最近 50 行日志 |
+| `/claude-to-im logs 200` | "logs 200" | 查看最近 200 行日志 |
+| `/claude-to-im reconfigure` | "reconfigure" / "修改配置" | 交互式修改配置 |
+| `/claude-to-im doctor` | "doctor" / "诊断" | 诊断问题 |
 
 ## 平台配置指南
 

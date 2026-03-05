@@ -62,8 +62,15 @@ case "${1:-help}" in
       echo "Bridge started (PID: $(cat "$PID_FILE"))"
       cat "$STATUS_FILE" 2>/dev/null
     else
-      echo "Failed to start bridge. Check logs: $LOG_FILE"
+      echo "Failed to start bridge."
+      echo ""
+      echo "Recent logs:"
       tail -20 "$LOG_FILE"
+      echo ""
+      echo "Next steps:"
+      echo "  1. Run diagnostics:  bash \"$SKILL_DIR/scripts/doctor.sh\""
+      echo "  2. Check full logs:  bash \"$SKILL_DIR/scripts/daemon.sh\" logs 100"
+      echo "  3. Rebuild bundle:   cd \"$SKILL_DIR\" && npm run build"
       exit 1
     fi
     ;;

@@ -61,9 +61,26 @@ mkdir -p ~/.claude/skills
 ln -s ~/code/Claude-to-IM-skill ~/.claude/skills/claude-to-im
 ```
 
+### Codex
+
+If you use [Codex](https://github.com/openai/codex), install with the provided script:
+
+```bash
+# Clone and install (copy mode)
+git clone https://github.com/op7418/Claude-to-IM-skill.git ~/code/Claude-to-IM-skill
+bash ~/code/Claude-to-IM-skill/scripts/install-codex.sh
+
+# Or use symlink mode for development
+bash ~/code/Claude-to-IM-skill/scripts/install-codex.sh --link
+```
+
+This installs the skill to `~/.codex/skills/claude-to-im`.
+
 ### Verify installation
 
-Start a new Claude Code session and type `/` — you should see `claude-to-im` in the skill list. Or ask Claude: "What skills are available?"
+**Claude Code:** Start a new session and type `/` — you should see `claude-to-im` in the skill list. Or ask Claude: "What skills are available?"
+
+**Codex:** Start a new session and say "claude-to-im setup" or "start bridge" — Codex will recognize the skill and run the setup wizard.
 
 ## Quick Start
 
@@ -96,18 +113,18 @@ When Claude needs to use a tool (edit a file, run a command), you'll see a permi
 
 ## Commands
 
-All commands are run inside Claude Code CLI:
+All commands are run inside Claude Code or Codex:
 
-| Command | Description |
-|---|---|
-| `/claude-to-im setup` | Interactive setup wizard |
-| `/claude-to-im start` | Start the bridge daemon |
-| `/claude-to-im stop` | Stop the bridge daemon |
-| `/claude-to-im status` | Show daemon status (PID, uptime, channels) |
-| `/claude-to-im logs` | Show last 50 log lines (secrets auto-redacted) |
-| `/claude-to-im logs 200` | Show last 200 log lines |
-| `/claude-to-im reconfigure` | Update config interactively |
-| `/claude-to-im doctor` | Diagnose issues (Node version, permissions, token validity) |
+| Claude Code | Codex (natural language) | Description |
+|---|---|---|
+| `/claude-to-im setup` | "claude-to-im setup" / "配置" | Interactive setup wizard |
+| `/claude-to-im start` | "start bridge" / "启动桥接" | Start the bridge daemon |
+| `/claude-to-im stop` | "stop bridge" / "停止桥接" | Stop the bridge daemon |
+| `/claude-to-im status` | "bridge status" / "状态" | Show daemon status |
+| `/claude-to-im logs` | "查看日志" | Show last 50 log lines |
+| `/claude-to-im logs 200` | "logs 200" | Show last 200 log lines |
+| `/claude-to-im reconfigure` | "reconfigure" / "修改配置" | Update config interactively |
+| `/claude-to-im doctor` | "doctor" / "诊断" | Diagnose issues |
 
 ## Platform Setup Guides
 

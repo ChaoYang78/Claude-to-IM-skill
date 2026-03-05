@@ -169,4 +169,14 @@ fi
 
 echo ""
 echo "Results: $PASS passed, $FAIL failed"
+
+if [ "$FAIL" -gt 0 ]; then
+  echo ""
+  echo "Common fixes:"
+  echo "  SDK cli.js missing    → cd $SKILL_DIR && npm install"
+  echo "  dist/daemon.mjs stale → cd $SKILL_DIR && npm run build"
+  echo "  config.env missing    → run setup wizard"
+  echo "  Stale PID file        → run stop, then start"
+fi
+
 [ "$FAIL" -eq 0 ] && exit 0 || exit 1

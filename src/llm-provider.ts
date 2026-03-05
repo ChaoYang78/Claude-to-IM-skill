@@ -141,7 +141,7 @@ export class SDKLLMProvider implements LLMProvider {
               canUseTool: async (
                   toolName: string,
                   input: Record<string, unknown>,
-                  opts,
+                  opts: { toolUseID: string; suggestions?: string[] },
                 ): Promise<PermissionResult> => {
                   // Emit permission_request SSE event for the bridge
                   controller.enqueue(
